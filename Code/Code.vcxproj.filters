@@ -21,9 +21,21 @@
     <ClCompile Include="getDatasetArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FFDItemCentric.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mergeSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getDatasetArray.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFDItemCentric.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mergeSort.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

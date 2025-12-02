@@ -4,6 +4,9 @@
 #include <vector>
 #include "getDatasetArray.h"
 
+// change header file to choose algorithm
+#include "FFDItemCentric.h"
+
 // function declarations
 int getBinSize(std::string inputStr);
 
@@ -45,6 +48,7 @@ int main() {
 		}
 		std::cout << std::endl;
 	}
+	std::vector<std::vector<int>> result = binPack(dataset, binSize);
 }
 
 int getBinSize(std::string inputStr) {
