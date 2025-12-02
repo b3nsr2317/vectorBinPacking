@@ -30,7 +30,7 @@ int main() {
 	// note - vector used because bin size is a runtime-constant, and not a compiler-constant
 	//      - vector used for each value instead of array for consistency
 	//      - also makes function definition of getDatasetArray less complex and size is not required on definition 
-	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, dimensions);
+	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, (dimensions + 1));
 	// output dataset
 	for (std::vector<int> row : dataset) {
 		bool first = true;

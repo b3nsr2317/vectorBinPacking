@@ -21,17 +21,21 @@ std::vector<std::vector<int>> getDatasetArray(std::vector<std::string> inputData
 std::vector<int> parseLine(std::string line, int dimensions) {
 	// create vector to hold parsed data, counter for current index, and other temp variables
 	std::vector<int> lineData(dimensions);
-	int counter = -1;
+	int counter = 0;
 	bool prevIsData = false;
 	std::string currentNumber;
 	// loop through characters in line
 	for (char c : line) {
 		// check if current character is a space
 		if (c == ' ') {
-			// if at end of a number that is not the first (line number), add to dataset, clear current number, and increment counter
+			// if at end of a number: add to dataset, clear current number, and increment counter
 			if (prevIsData) {
-				if (counter >= 0) {
+				// if first number (line number), subract 1 to match vectors' index
+				if (counter > 0) {
 					lineData[counter] = std::stoi(currentNumber);
+				}
+				else {
+					lineData[counter] = std::stoi(currentNumber) - 1;
 				}
 				currentNumber = "";
 				prevIsData = false;
@@ -40,9 +44,7 @@ std::vector<int> parseLine(std::string line, int dimensions) {
 		}
 		else {
 			// add character to current number
-			if (counter >= 0) {
-				currentNumber += c;
-			}
+			currentNumber += c;
 			prevIsData = true;
 		}
 	}
