@@ -34,8 +34,23 @@ int main() {
 	//      - vector used for each value instead of array for consistency
 	//      - also makes function definition of getDatasetArray less complex and size is not required on definition 
 	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, (dimensions + 1));
-	// output dataset
-	for (std::vector<int> row : dataset) {
+	// output dataset (for testing)
+	/*for (std::vector<int> row : dataset) {
+		bool first = true;
+		for (int val : row) {
+			if (first) {
+				std::cout << val;
+				first = false;
+			}
+			else {
+				std::cout << ", " << val;
+			}
+		}
+		std::cout << std::endl;
+	}*/
+	std::vector<std::vector<int>> result = binPack(dataset, binSize);
+	// output result
+	for (std::vector<int> row : result) {
 		bool first = true;
 		for (int val : row) {
 			if (first) {
@@ -48,7 +63,6 @@ int main() {
 		}
 		std::cout << std::endl;
 	}
-	std::vector<std::vector<int>> result = binPack(dataset, binSize);
 }
 
 int getBinSize(std::string inputStr) {
