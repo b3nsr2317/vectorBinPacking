@@ -13,7 +13,7 @@ int getBinSize(std::string inputStr);
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_01_25_01.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_03_200_07.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);
@@ -63,6 +63,7 @@ int main() {
 		}
 		std::cout << std::endl;
 	}
+	std::cout << "Total bins: " << result.size();
 }
 
 int getBinSize(std::string inputStr) {
