@@ -123,12 +123,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FFDBinCentric.cpp" />
     <ClCompile Include="FFDItemCentric.cpp" />
     <ClCompile Include="getDatasetArray.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mergeSort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FFDBinCentric.h" />
     <ClInclude Include="FFDItemCentric.h" />
     <ClInclude Include="getDatasetArray.h" />
     <ClInclude Include="mergeSort.h" />

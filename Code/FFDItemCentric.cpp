@@ -4,10 +4,9 @@
 
 #include <iostream>
 
-std::vector<std::vector<int>> sort(std::vector<std::vector<int>> dataset);
 
-std::vector<std::vector<int>> binPack(std::vector<std::vector<int>> dataset, int binSize) {
-	dataset = sort(dataset);
+std::vector<std::vector<int>> FFDItemCentric(std::vector<std::vector<int>> dataset, int binSize) {
+	dataset = sortByProduct(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };
 	for (int i = 1; i < dataset[0].size(); i++) {
@@ -60,29 +59,4 @@ std::vector<std::vector<int>> binPack(std::vector<std::vector<int>> dataset, int
 		result.push_back(resultVector);
 	}
 	return result;
-}
-
-std::vector<std::vector<int>> sort(std::vector<std::vector<int>> dataset) {
-	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
-	std::vector<std::vector<int>> sortedDataset = dataset;
-	// get the product of each dimension to use as measure of vector size in sort
-	for (std::vector<int> vect : dataset) {
-		bool first = true;
-		int product = 1;
-		for (int val : vect) {
-			if (first) {
-				first = false;
-			}
-			else {
-				product *= val;
-			}
-		}
-		sortInput[vect[0]] = {vect[0], product};
-	}
-	// order dataset according to sort result
-	std::vector<std::vector<int>> sortResult = mergeSort(sortInput);
-	for (int i = 0; i < sortResult.size(); i++) {
-		sortedDataset[i] = dataset[sortResult[i][0]];
-	}
-	return sortedDataset;
 }

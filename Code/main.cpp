@@ -4,8 +4,12 @@
 #include <vector>
 #include "getDatasetArray.h"
 
-// change header file to choose algorithm
+// heuristic = 1
 #include "FFDItemCentric.h"
+// heuristic = 2
+#include "FFDBinCentric.h"
+
+int heuristic = 1;
 
 // function declarations
 int getBinSize(std::string inputStr);
@@ -13,7 +17,7 @@ int getBinSize(std::string inputStr);
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_03_200_07.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_06_200_02.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);
@@ -48,7 +52,14 @@ int main() {
 		}
 		std::cout << std::endl;
 	}*/
-	std::vector<std::vector<int>> result = binPack(dataset, binSize);
+	std::vector<std::vector<int>> result;
+	switch (heuristic) {
+	case 1:
+		result = FFDItemCentric(dataset, binSize);
+	case 2:
+		result = FFDBinCentric(dataset, binSize);
+	}
+
 	// output result
 	for (std::vector<int> row : result) {
 		bool first = true;
