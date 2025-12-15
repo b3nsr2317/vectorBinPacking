@@ -30,6 +30,9 @@
     <ClCompile Include="FFDBinCentric.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GroupedByMostSignificant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getDatasetArray.h">
@@ -42,6 +45,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="FFDBinCentric.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupedByMostSignificant.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
