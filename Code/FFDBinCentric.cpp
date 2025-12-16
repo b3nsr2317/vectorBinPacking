@@ -45,7 +45,7 @@ std::vector<std::vector<int>> FFDBinCentric(std::vector<std::vector<int>> datase
 		}
 	}
 	// remove the remaining capacity values from the bins, and return result
-	for (std::vector<int> bin : bins) {
+	for (auto& bin : bins) {
 		std::vector<int> resultVector;
 		for (int i = vectorSize - 1; i < bin.size(); i++) {
 			resultVector.push_back(bin[i]);

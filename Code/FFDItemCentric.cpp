@@ -13,7 +13,7 @@ std::vector<std::vector<int>> FFDItemCentric(std::vector<std::vector<int>> datas
 		bins[0].push_back(binSize);
 	}
 	int lastBin = 0;
-	for (std::vector<int> item : dataset) {
+	for (auto& item : dataset) {
 		bool fit = false;
 		int bin = 0;
 		while (!fit) {
@@ -51,7 +51,7 @@ std::vector<std::vector<int>> FFDItemCentric(std::vector<std::vector<int>> datas
 		}
 	}
 	// remove the remaining capacity values from the bins, and return result
-	for (std::vector<int> bin : bins) {
+	for (auto& bin : bins) {
 		std::vector<int> resultVector;
 		for (int i = dataset[0].size() - 1; i < bin.size(); i++) {
 			resultVector.push_back(bin[i]);

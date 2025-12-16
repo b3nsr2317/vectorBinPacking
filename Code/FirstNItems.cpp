@@ -11,7 +11,7 @@ std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset,
 	int minBins = 0;
 	for (int i = 1; i < dataset[0].size(); i++) {
 		float total = 0;
-		for (std::vector<int> item : dataset) {
+		for (auto& item : dataset) {
 			total += item[i];
 		}
 		if (total / binSize > minBins) {
@@ -31,7 +31,7 @@ std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset,
 	for (int i = 0; i < minBins; i++) {
 		dataset.erase(dataset.begin() + i);
 	}
-	for (std::vector<int> item : dataset) {
+	for (auto& item : dataset) {
 		bool fit = false;
 		int bin = 0;
 		while (!fit) {
@@ -69,7 +69,7 @@ std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset,
 		}
 	}
 	// remove the remaining capacity values from the bins, and return result
-	for (std::vector<int> bin : bins) {
+	for (auto& bin : bins) {
 		std::vector<int> resultVector;
 		for (int i = dataset[0].size() - 1; i < bin.size(); i++) {
 			resultVector.push_back(bin[i]);
