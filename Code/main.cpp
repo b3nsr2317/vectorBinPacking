@@ -11,8 +11,10 @@
 #include "FFDBinCentric.h"
 // heursitic = 3
 #include "GroupedByMostSignificant.h"
+// heuristic = 4
+#include "FirstNItems.h"
 
-const int HEURISTIC = 1;
+const int HEURISTIC = 3;
 
 // function declarations
 int getBinSize(std::string inputStr);
@@ -20,7 +22,7 @@ int getBinSize(std::string inputStr);
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_03_100_02.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_01_25_01.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);
@@ -60,10 +62,16 @@ int main() {
 	switch (HEURISTIC) {
 	case 1:
 		result = FFDItemCentric(dataset, binSize);
+		break;
 	case 2:
 		result = FFDBinCentric(dataset, binSize);
+		break;
 	case 3:
 		result = GroupedByMostSignificant(dataset, binSize);
+		break;
+	case 4:
+		result = FirstNItems(dataset, binSize);
+		break;
 	}
 	auto stop = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
