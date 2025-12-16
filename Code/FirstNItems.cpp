@@ -18,7 +18,7 @@ std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset,
 			minBins = std::ceil(total / binSize);
 		}
 	}
-	std::cout << minBins << std::endl;
+	std::cout << "Minimum bins: " << minBins << std::endl;
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = {};
 	for (int i = 0; i < minBins; i++) {
