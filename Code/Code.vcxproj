@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="FFDBinCentric.cpp" />
     <ClCompile Include="FFDItemCentric.cpp" />
+    <ClCompile Include="FirstNItems.cpp" />
     <ClCompile Include="getDatasetArray.cpp" />
     <ClCompile Include="GroupedByMostSignificant.cpp" />
     <ClCompile Include="main.cpp" />
@@ -133,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="FFDBinCentric.h" />
     <ClInclude Include="FFDItemCentric.h" />
+    <ClInclude Include="FirstNItems.h" />
     <ClInclude Include="getDatasetArray.h" />
     <ClInclude Include="GroupedByMostSignificant.h" />
     <ClInclude Include="mergeSort.h" />

@@ -4,8 +4,8 @@
 
 #include <iostream>
 
-
 std::vector<std::vector<int>> FFDItemCentric(std::vector<std::vector<int>> dataset, int binSize) {
+	std::cout << "FFD Item Centric:" << std::endl;
 	dataset = sortByProduct(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };
