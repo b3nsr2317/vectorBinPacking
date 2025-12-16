@@ -35,12 +35,12 @@ std::vector<std::vector<int>> GroupedByMostSignificant(std::vector<std::vector<i
 	// sort each list by its most significant value
 	for (int i = 0; i < splitDataset.size(); i++) {
 		std::vector<std::vector<int>> listToSort;
-		for (std::vector<int> vector : splitDataset[i]) {
+		for (auto& vector : splitDataset[i]) {
 			listToSort.push_back({ vector[0], vector[i + 1] });
 		}
 		listToSort = mergeSort(listToSort);
 		std::vector<std::vector<int>> sortedList;
-		for (std::vector<int> vector : listToSort) {
+		for (auto& vector : listToSort) {
 			sortedList.push_back(fullDataset[vector[0]]);
 		}
 		splitDataset[i] = sortedList;
@@ -112,14 +112,14 @@ std::vector<std::vector<int>> GroupedByMostSignificant(std::vector<std::vector<i
 		}
 		// check if all lists are empty before looping
 		datasetEmpty = true;
-		for (std::vector<std::vector<int>> list : splitDataset) {
+		for (auto& list : splitDataset) {
 			if (list.size() > 0) {
 				datasetEmpty = false;
 			}
 		}
 	}
 	// remove the remaining capacity values from the bins, and return result
-	for (std::vector<int> bin : bins) {
+	for (auto& bin : bins) {
 		std::vector<int> resultVector;
 		for (int i = vectorSize - 1; i < bin.size(); i++) {
 			resultVector.push_back(bin[i]);
