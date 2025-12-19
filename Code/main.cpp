@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <chrono>
+#include <cmath>
 #include "getDatasetArray.h"
 
 
@@ -17,15 +18,16 @@
 // heursitic = 5
 #include "FFDBinCentricDynamicSort.h"
 
-const int HEURISTIC = 5;
+const int HEURISTIC = 3;
 
 // function declarations
 int getBinSize(std::string inputStr);
+int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_02_200_01.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_07_25_04.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);
@@ -60,6 +62,7 @@ int main() {
 		}
 		std::cout << std::endl;
 	}*/
+	int lowerBound = getLowerBound(dataset, binSize);
 	std::vector<std::vector<int>> result;
 	auto start = std::chrono::high_resolution_clock::now();
 	switch (HEURISTIC) {
@@ -95,7 +98,13 @@ int main() {
 		}
 		std::cout << std::endl;
 	}
-	std::cout << "Total bins: " << result.size() << std::endl;
+	std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
+	std::cout << "Total bins: " << result.size();
+	if (result.size() == lowerBound) {
+		std::cout << " (definitely optimal)" << std::endl;
+	} else {
+		std::cout << std::endl;
+	}
 	std::cout << "Time taken (ms): " << duration.count();
 }
 
@@ -116,4 +125,21 @@ int getBinSize(std::string inputStr) {
 	}
 	// return result as int
 	return std::stoi(binsizeStr);
+}
+
+int getLowerBound(std::vector<std::vector<int>> dataset, int binsize) {
+	int binsReqd = 0;
+	for (int i = 1; i < dataset[0].size(); i++) {
+		int total = 0;
+		for (auto& vect : dataset) {
+			total += vect[i];
+		}
+		int newReq = std::ceil((1.0 * total) / binsize);
+		if (i == 1) {
+			binsReqd = newReq;
+		} else if (binsReqd < newReq) {
+			binsReqd = newReq;
+		}
+	}
+	return binsReqd;
 }
