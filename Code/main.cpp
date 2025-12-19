@@ -27,7 +27,7 @@ int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_07_25_04.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_04_200_01.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);

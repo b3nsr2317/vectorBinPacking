@@ -66,7 +66,7 @@ std::vector<std::vector<int>> GroupedByMostSignificant(std::vector<std::vector<i
 				if (bins[currentBin][i] > bins[currentBin][mostRemainingSpace[0]]) {
 					mostRemainingSpace = { i };
 				}
-				else if (bins[currentBin][i] = bins[currentBin][mostRemainingSpace[0]]) {
+				else if (bins[currentBin][i] == bins[currentBin][mostRemainingSpace[0]]) {
 					mostRemainingSpace.push_back(i);
 				}
 			}
