@@ -36,6 +36,12 @@
     <ClCompile Include="FirstNItems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DecayingLookahead.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FFDBinCentricDynamicSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getDatasetArray.h">
@@ -55,6 +61,12 @@
     </ClInclude>
     <ClInclude Include="FirstNItems.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecayingLookahead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFDBinCentricDynamicSort.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

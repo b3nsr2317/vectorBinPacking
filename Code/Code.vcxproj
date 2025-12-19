@@ -123,7 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DecayingLookahead.cpp" />
     <ClCompile Include="FFDBinCentric.cpp" />
+    <ClCompile Include="FFDBinCentricDynamicSort.cpp" />
     <ClCompile Include="FFDItemCentric.cpp" />
     <ClCompile Include="FirstNItems.cpp" />
     <ClCompile Include="getDatasetArray.cpp" />
@@ -132,7 +134,9 @@
     <ClCompile Include="mergeSort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DecayingLookahead.h" />
     <ClInclude Include="FFDBinCentric.h" />
+    <ClInclude Include="FFDBinCentricDynamicSort.h" />
     <ClInclude Include="FFDItemCentric.h" />
     <ClInclude Include="FirstNItems.h" />
     <ClInclude Include="getDatasetArray.h" />
