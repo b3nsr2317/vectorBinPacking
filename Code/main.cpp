@@ -5,6 +5,7 @@
 #include <chrono>
 #include "getDatasetArray.h"
 
+
 // heuristic = 1
 #include "FFDItemCentric.h"
 // heuristic = 2
@@ -13,8 +14,10 @@
 #include "GroupedByMostSignificant.h"
 // heuristic = 4
 #include "FirstNItems.h"
+// heursitic = 5
+#include "FFDBinCentricDynamicSort.h"
 
-const int HEURISTIC = 4;
+const int HEURISTIC = 5;
 
 // function declarations
 int getBinSize(std::string inputStr);
@@ -22,7 +25,7 @@ int getBinSize(std::string inputStr);
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_06_200_10.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_02_200_01.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);
@@ -71,6 +74,9 @@ int main() {
 		break;
 	case 4:
 		result = FirstNItems(dataset, binSize);
+		break;
+	case 5:
+		result = FFDBinCentricDynamicSort(dataset, binSize);
 		break;
 	}
 	auto stop = std::chrono::high_resolution_clock::now();
