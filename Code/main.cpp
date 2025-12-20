@@ -20,7 +20,7 @@
 // heuristic = 6
 #include "DecayingLookahead.h"
 
-const int HEURISTIC = 6;
+const std::vector<int> HEURISTICS = { 1, 3, 5, 6 };
 
 // function declarations
 int getBinSize(std::string inputStr);
@@ -65,52 +65,56 @@ int main() {
 		std::cout << std::endl;
 	}*/
 	int lowerBound = getLowerBound(dataset, binSize);
-	std::vector<std::vector<int>> result;
-	auto start = std::chrono::high_resolution_clock::now();
-	switch (HEURISTIC) {
-	case 1:
-		result = FFDItemCentric(dataset, binSize);
-		break;
-	case 2:
-		result = FFDBinCentric(dataset, binSize);
-		break;
-	case 3:
-		result = GroupedByMostSignificant(dataset, binSize);
-		break;
-	case 4:
-		result = FirstNItems(dataset, binSize);
-		break;
-	case 5:
-		result = FFDBinCentricDynamicSort(dataset, binSize);
-		break;
-	case 6:
-		result = DecayingLookahead(dataset, binSize, lowerBound);
-		break;
-	}
-	auto stop = std::chrono::high_resolution_clock::now();
-	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-	// output result
-	for (std::vector<int> row : result) {
-		bool first = true;
-		for (int val : row) {
-			if (first) {
-				std::cout << val;
-				first = false;
-			}
-			else {
-				std::cout << ", " << val;
-			}
+	for (int heuristic : HEURISTICS) {
+		std::vector<std::vector<int>> result;
+		auto start = std::chrono::high_resolution_clock::now();
+		switch (heuristic) {
+		case 1:
+			result = FFDItemCentric(dataset, binSize);
+			break;
+		case 2:
+			result = FFDBinCentric(dataset, binSize);
+			break;
+		case 3:
+			result = GroupedByMostSignificant(dataset, binSize);
+			break;
+		case 4:
+			result = FirstNItems(dataset, binSize);
+			break;
+		case 5:
+			result = FFDBinCentricDynamicSort(dataset, binSize);
+			break;
+		case 6:
+			result = DecayingLookahead(dataset, binSize, lowerBound);
+			break;
 		}
+		auto stop = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		// output result
+		/*for (std::vector<int> row : result) {
+			bool first = true;
+			for (int val : row) {
+				if (first) {
+					std::cout << val;
+					first = false;
+				}
+				else {
+					std::cout << ", " << val;
+				}
+			}
+			std::cout << std::endl;
+		}*/
+		std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
+		std::cout << "Total bins: " << result.size();
+		if (result.size() == lowerBound) {
+			std::cout << " (definitely optimal)" << std::endl;
+		}
+		else {
+			std::cout << std::endl;
+		}
+		std::cout << "Time taken (ms): " << duration.count() << std::endl;
 		std::cout << std::endl;
 	}
-	std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
-	std::cout << "Total bins: " << result.size();
-	if (result.size() == lowerBound) {
-		std::cout << " (definitely optimal)" << std::endl;
-	} else {
-		std::cout << std::endl;
-	}
-	std::cout << "Time taken (ms): " << duration.count();
 }
 
 int getBinSize(std::string inputStr) {
