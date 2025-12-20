@@ -112,7 +112,6 @@ std::vector<std::vector<int>> multiFactorSort(std::vector<std::vector<int>> data
 	avgAvg /= dataset.size();
 	int rangeWeight = round(1000.0 * avgRange / (avgRange + avgAvg));
 	int avgWeight = 1000 - rangeWeight;
-	std::cout << rangeWeight << ", " << avgWeight << std::endl;
 	for (int i = 0; i < dataset.size(); i++) {
 		sortInput[i][0] = vectorRangeAndProduct[i][0];
 		int size = vectorRangeAndProduct[i][1] * rangeWeight + vectorRangeAndProduct[i][2] * avgWeight;

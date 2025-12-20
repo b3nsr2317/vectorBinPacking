@@ -15,10 +15,12 @@
 #include "GroupedByMostSignificant.h"
 // heuristic = 4
 #include "FirstNItems.h"
-// heursitic = 5
+// heuristic = 5
 #include "FFDBinCentricDynamicSort.h"
+// heuristic = 6
+#include "DecayingLookahead.h"
 
-const int HEURISTIC = 3;
+const int HEURISTIC = 6;
 
 // function declarations
 int getBinSize(std::string inputStr);
@@ -27,7 +29,7 @@ int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 int main() {
 	const int dimensions = 2;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_04_200_01.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/CL_01_25_01.TXT";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	std::getline(DataFile, line);
@@ -80,6 +82,9 @@ int main() {
 		break;
 	case 5:
 		result = FFDBinCentricDynamicSort(dataset, binSize);
+		break;
+	case 6:
+		result = DecayingLookahead(dataset, binSize, lowerBound);
 		break;
 	}
 	auto stop = std::chrono::high_resolution_clock::now();
