@@ -22,20 +22,35 @@
 
 const std::vector<int> HEURISTICS = { 1, 3, 5, 6 };
 
+const bool CAPARATOTHBENCHMARK = false;
+
 // function declarations
 int getBinSize(std::string inputStr);
 int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 
 int main() {
-	const int dimensions = 2;
+	int dimensions;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/CL_01_25_01.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/class1_500_3_0.vbp";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
-	std::getline(DataFile, line);
-	int datasetLength = std::stoi(line);
-	std::getline(DataFile, line);
-	int binSize = getBinSize(line);
+	int binSize;
+	int datasetLength;
+	if (CAPARATOTHBENCHMARK) {
+		dimensions = 2;
+		std::getline(DataFile, line);
+		datasetLength= std::stoi(line);
+		std::getline(DataFile, line);
+		binSize = getBinSize(line);
+	}
+	else {
+		std::getline(DataFile, line);
+		dimensions = std::stoi(line);
+		std::getline(DataFile, line);
+		binSize = getBinSize(line);
+		std::getline(DataFile, line);
+		datasetLength = std::stoi(line);
+	}
 	std::vector<std::string> datasetString(datasetLength);
 	// scope limited to allow reuse of name "i" if required
 	{
@@ -49,7 +64,7 @@ int main() {
 	// note - vector used because bin size is a runtime-constant, and not a compiler-constant
 	//      - vector used for each value instead of array for consistency
 	//      - also makes function definition of getDatasetArray less complex and size is not required on definition 
-	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, (dimensions + 1));
+	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, (dimensions + 1), CAPARATOTHBENCHMARK);
 	// output dataset (for testing)
 	/*for (std::vector<int> row : dataset) {
 		bool first = true;
@@ -90,8 +105,10 @@ int main() {
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+		// counter to confirm all items have been packed
+		int itemCount = 0;
 		// output result
-		/*for (std::vector<int> row : result) {
+		for (std::vector<int> row : result) {
 			bool first = true;
 			for (int val : row) {
 				if (first) {
@@ -101,9 +118,11 @@ int main() {
 				else {
 					std::cout << ", " << val;
 				}
+				itemCount++;
 			}
 			std::cout << std::endl;
-		}*/
+		}
+		std::cout << "items used: " << itemCount << std::endl;
 		std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
 		std::cout << "Total bins: " << result.size();
 		if (result.size() == lowerBound) {

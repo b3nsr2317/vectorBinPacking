@@ -12,12 +12,18 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 	std::cout << "Decaying Lookahead:" << std::endl;
 	int datasetSize = dataset.size();
 	int vectorSize = dataset[0].size();
-	int estimatePerBin = dataset.size() / lowerBound;
-	int initialLookforward = std::ceil(estimatePerBin);
-	if (initialLookforward > 20) {
-		initialLookforward = 20;
+	float estimatePerBin = dataset.size() / lowerBound;
+	int initialLookforward = std::ceil(5000/datasetSize);
+	if (initialLookforward > 50) {
+		initialLookforward = 50;
 	}
-	float decayRate = estimatePerBin/2;
+	else if (initialLookforward < 3) {
+		initialLookforward = 3;
+	}
+	float decayRate = estimatePerBin;
+	//initialLookforward = 200;
+	//decayRate = 0;
+	std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;
 	dataset = multiFactorSort(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins;
