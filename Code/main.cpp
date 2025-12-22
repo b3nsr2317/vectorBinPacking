@@ -22,7 +22,7 @@
 
 const std::vector<int> HEURISTICS = { 1, 3, 5, 6 };
 
-const bool CAPARATOTHBENCHMARK = false;
+const bool CAPRARATOTHBENCHMARK = false;
 
 // function declarations
 int getBinSize(std::string inputStr);
@@ -31,12 +31,16 @@ int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 int main() {
 	int dimensions;
 	// open file, get dataset length and bin size
-	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/class1_500_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class1/CL_01_50_01.TXT";
+	//std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/class1_500_3_0.vbp";
+	std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class2/class2_250_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_60_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/classF_60_3_0.vbp";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	int binSize;
 	int datasetLength;
-	if (CAPARATOTHBENCHMARK) {
+	if (CAPRARATOTHBENCHMARK) {
 		dimensions = 2;
 		std::getline(DataFile, line);
 		datasetLength= std::stoi(line);
@@ -64,7 +68,7 @@ int main() {
 	// note - vector used because bin size is a runtime-constant, and not a compiler-constant
 	//      - vector used for each value instead of array for consistency
 	//      - also makes function definition of getDatasetArray less complex and size is not required on definition 
-	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, (dimensions + 1), CAPARATOTHBENCHMARK);
+	std::vector<std::vector<int>> dataset = getDatasetArray(datasetString, (dimensions + 1), CAPRARATOTHBENCHMARK);
 	// output dataset (for testing)
 	/*for (std::vector<int> row : dataset) {
 		bool first = true;
@@ -106,9 +110,9 @@ int main() {
 		auto stop = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		// counter to confirm all items have been packed
-		int itemCount = 0;
+		//int itemCount = 0;
 		// output result
-		for (std::vector<int> row : result) {
+		/*for (std::vector<int> row : result) {
 			bool first = true;
 			for (int val : row) {
 				if (first) {
@@ -122,7 +126,8 @@ int main() {
 			}
 			std::cout << std::endl;
 		}
-		std::cout << "items used: " << itemCount << std::endl;
+		std::cout << "items used: " << itemCount << std::endl;*/
+		std::cout << "Dimensions: " << dimensions << std::endl;
 		std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
 		std::cout << "Total bins: " << result.size();
 		if (result.size() == lowerBound) {
