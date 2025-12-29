@@ -20,7 +20,7 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 	else if (initialLookforward < 3) {
 		initialLookforward = 3;
 	}
-	float decayRate = estimatePerBin;
+	float decayRate = estimatePerBin/4;
 	//initialLookforward = 200;
 	//decayRate = 0;
 	std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;

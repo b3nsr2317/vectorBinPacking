@@ -20,7 +20,7 @@
 // heuristic = 6
 #include "DecayingLookahead.h"
 
-const std::vector<int> HEURISTICS = { 1, 3, 5, 6 };
+const std::vector<int> HEURISTICS = { 2, 5, 6, 3, 4 };
 
 const bool CAPRARATOTHBENCHMARK = false;
 
@@ -31,11 +31,12 @@ int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 int main() {
 	int dimensions;
 	// open file, get dataset length and bin size
-	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class1/CL_01_50_01.TXT";
-	//std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/class1_500_3_0.vbp";
-	std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class2/class2_250_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class1/CL_01_200_01.TXT";
+	//std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class4/class4_500_3_4.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class2/class2_500_10_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_60_3_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/classF_60_3_0.vbp";
+	std::string inputFilePath = "../BenchmarkDatasets/hugeDataset_3.vbp";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	int binSize;
@@ -127,8 +128,6 @@ int main() {
 			std::cout << std::endl;
 		}
 		std::cout << "items used: " << itemCount << std::endl;*/
-		std::cout << "Dimensions: " << dimensions << std::endl;
-		std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
 		std::cout << "Total bins: " << result.size();
 		if (result.size() == lowerBound) {
 			std::cout << " (definitely optimal)" << std::endl;
@@ -139,6 +138,8 @@ int main() {
 		std::cout << "Time taken (ms): " << duration.count() << std::endl;
 		std::cout << std::endl;
 	}
+	std::cout << "Dimensions: " << dimensions << std::endl;
+	std::cout << "Lower bound minimum bins: " << lowerBound << std::endl;
 }
 
 int getBinSize(std::string inputStr) {
@@ -152,7 +153,7 @@ int getBinSize(std::string inputStr) {
 			break;
 		}
 		else if (c != ' ') {
-			if (not started) { started = true; }
+			if (!started) { started = true; }
 			binsizeStr += c;
 		}
 	}
