@@ -28,7 +28,7 @@ std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset,
 		}
 		bins[i].push_back(dataset[i][0]);
 	}
-	for (int i = 0; i < minBins; i++) {
+	for (int i = minBins - 1; i >= 0 ; i--) {
 		dataset.erase(dataset.begin() + i);
 	}
 	for (auto& item : dataset) {
