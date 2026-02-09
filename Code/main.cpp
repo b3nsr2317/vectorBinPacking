@@ -19,8 +19,10 @@
 #include "FFDBinCentricDynamicSort.h"
 // heuristic = 6
 #include "DecayingLookahead.h"
+// heuristic = 7
+#include "PanigrahyBinCentric.h"
 
-const std::vector<int> HEURISTICS = { 2, 5, 6, 3, 4 };
+const std::vector<int> HEURISTICS = { 7, 6, 3, 1 };
 
 const bool CAPRARATOTHBENCHMARK = false;
 
@@ -31,12 +33,12 @@ int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 int main() {
 	int dimensions;
 	// open file, get dataset length and bin size
-	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class1/CL_01_200_01.TXT";
-	//std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class4/class4_500_3_4.vbp";
-	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class2/class2_500_10_0.vbp";
-	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_60_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class4/CL_04_200_01.TXT";
+	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class4/class4_500_10_1.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class3/class3_500_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_249_3_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/classF_60_3_0.vbp";
-	std::string inputFilePath = "../BenchmarkDatasets/hugeDataset_3.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/hugeDataset_3.vbp";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	int binSize;
@@ -107,6 +109,8 @@ int main() {
 		case 6:
 			result = DecayingLookahead(dataset, binSize, lowerBound);
 			break;
+		case 7:
+			result = PanigrahyBinCentric(dataset, binSize);
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
