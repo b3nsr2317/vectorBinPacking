@@ -13,14 +13,11 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 	int datasetSize = dataset.size();
 	int vectorSize = dataset[0].size();
 	float estimatePerBin = dataset.size() / lowerBound;
-	int initialLookforward = std::ceil(5000/datasetSize);
-	if (initialLookforward > 50) {
-		initialLookforward = 50;
-	}
-	else if (initialLookforward < 3) {
+	int initialLookforward = std::ceil(25/estimatePerBin);
+	if (initialLookforward < 3) {
 		initialLookforward = 3;
 	}
-	float decayRate = estimatePerBin/4;
+	float decayRate = 4/estimatePerBin;
 	//initialLookforward = 200;
 	//decayRate = 0;
 	std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;

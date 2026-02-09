@@ -132,6 +132,7 @@
     <ClCompile Include="GroupedByMostSignificant.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mergeSort.cpp" />
+    <ClCompile Include="PanigrahyBinCentric.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DecayingLookahead.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="getDatasetArray.h" />
     <ClInclude Include="GroupedByMostSignificant.h" />
     <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="PanigrahyBinCentric.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
