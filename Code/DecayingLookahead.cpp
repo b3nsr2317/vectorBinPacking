@@ -21,7 +21,7 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 	//initialLookforward = 200;
 	//decayRate = 0;
 	std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;
-	dataset = multiFactorSort(dataset);
+	dataset = sortBySum(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins;
 	while (dataset.size() > 0) {

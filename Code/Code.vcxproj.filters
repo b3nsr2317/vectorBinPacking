@@ -45,6 +45,9 @@
     <ClCompile Include="PanigrahyBinCentric.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FFDProductSort.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getDatasetArray.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PanigrahyBinCentric.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFDProductSort.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

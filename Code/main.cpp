@@ -21,8 +21,10 @@
 #include "DecayingLookahead.h"
 // heuristic = 7
 #include "PanigrahyBinCentric.h"
+// heuristic = 8
+#include "FFDProductSort.h"
 
-const std::vector<int> HEURISTICS = { 7, 6, 3, 1 };
+const std::vector<int> HEURISTICS = { 6 };
 
 const bool CAPRARATOTHBENCHMARK = false;
 
@@ -34,7 +36,7 @@ int main() {
 	int dimensions;
 	// open file, get dataset length and bin size
 	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class4/CL_04_200_01.TXT";
-	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class4/class4_500_10_1.vbp";
+	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class2/class2_500_3_1.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class3/class3_500_3_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_249_3_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/classF_60_3_0.vbp";
@@ -111,6 +113,10 @@ int main() {
 			break;
 		case 7:
 			result = PanigrahyBinCentric(dataset, binSize);
+			break;
+		case 8:
+			result = FFDProductSort(dataset, binSize);
+			break;
 		}
 		auto stop = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);

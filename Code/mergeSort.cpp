@@ -81,6 +81,31 @@ std::vector<std::vector<int>> sortByProduct(std::vector<std::vector<int>> datase
 	return sortedDataset;
 }
 
+std::vector<std::vector<int>> sortBySum(std::vector<std::vector<int>> dataset) {
+	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
+	std::vector<std::vector<int>> sortedDataset = dataset;
+	// get the sum of each dimension to use as measure of vector size in sort
+	for (std::vector<int> vect : dataset) {
+		bool first = true;
+		int sum = 0;
+		for (int val : vect) {
+			if (first) {
+				first = false;
+			}
+			else {
+				sum += val;
+			}
+		}
+		sortInput[vect[0]] = { vect[0], sum };
+	}
+	// order dataset according to sort result
+	std::vector<std::vector<int>> sortResult = mergeSort(sortInput);
+	for (int i = 0; i < sortResult.size(); i++) {
+		sortedDataset[i] = dataset[sortResult[i][0]];
+	}
+	return sortedDataset;
+}
+
 std::vector<std::vector<int>> multiFactorSort(std::vector<std::vector<int>> dataset) {
 	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
 	std::vector<std::vector<int>> sortedDataset = dataset;

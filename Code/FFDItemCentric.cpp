@@ -6,7 +6,7 @@
 
 std::vector<std::vector<int>> FFDItemCentric(std::vector<std::vector<int>> dataset, int binSize) {
 	std::cout << "FFD Item Centric:" << std::endl;
-	dataset = sortByProduct(dataset);
+	dataset = sortBySum(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };
 	for (int i = 1; i < dataset[0].size(); i++) {
