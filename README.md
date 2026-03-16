@@ -27,3 +27,11 @@ The focus of this heuristic is the way in which the items are sorted, rather tha
 ## Decaying Lookahead
 
 This heuristic uses a bin-centric FFD, but tests more than one item. It starts with n items, and n is reduced by the decay rate each recursion. After a bin has been filled, the packing that leaves the least empty space is used, and then it moves onto the next bin. Depending on the starting values of the lookahead amount and decay rate, this can find far better results than a greedy algorithm, however this can be at a large compromise on speed if the starting values are too high. In some cases, this was able to find an optimal packing in a reasonable time for 2 dimensional items/bins where FFD (and its variants) could not.
+
+## Panigrahy Bin-Centric
+
+As described in "Heuristics for Vector Bin Packing" (Panigrahy et al., 2011), uses the dot product of items with the remaining capacity to determine how well it fits.
+
+## FFD Item-Centric with Product Sort
+
+Standard FFD, but items are sorted by the product of their values, rather than the sum.
