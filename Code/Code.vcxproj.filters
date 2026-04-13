@@ -48,6 +48,15 @@
     <ClCompile Include="FFDProductSort.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FFDL2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FFDLinf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FFDL1Weighted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getDatasetArray.h">
@@ -78,6 +87,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FFDProductSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFDL2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFDLinf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FFDL1Weighted.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,13 +1,13 @@
+#include <iostream>
 #include <vector>
 #include <cmath>
 #include "FirstNItems.h"
 #include "mergeSort.h"
 
-#include <iostream>
 
 std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset, int binSize) {
 	std::cout << "First N Items:" << std::endl;
-	dataset = sortByProduct(dataset);
+	dataset = sortL1(dataset);
 	int minBins = 0;
 	for (int i = 1; i < dataset[0].size(); i++) {
 		float total = 0;

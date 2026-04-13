@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
 #include "FFDItemCentric.h"
 #include "mergeSort.h"
 
-#include <iostream>
 
 std::vector<std::vector<int>> FFDProductSort(std::vector<std::vector<int>> dataset, int binSize) {
 	std::cout << "FFD Item Centric (Product Sort):" << std::endl;

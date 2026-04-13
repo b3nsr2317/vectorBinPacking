@@ -1,12 +1,12 @@
+#include <iostream>
 #include <vector>
 #include "FFDItemCentric.h"
 #include "mergeSort.h"
 
-#include <iostream>
 
 std::vector<std::vector<int>> FFDBinCentric(std::vector<std::vector<int>> dataset, int binSize) {
 	std::cout << "FFD Bin Centric:" << std::endl;
-	dataset = sortBySum(dataset);
+	dataset = sortL1(dataset);
 	int vectorSize = dataset[0].size();
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins;

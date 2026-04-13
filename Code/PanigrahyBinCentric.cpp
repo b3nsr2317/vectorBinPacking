@@ -1,8 +1,7 @@
+#include <iostream>
 #include <vector>
 #include "FFDItemCentric.h"
 #include "mergeSort.h"
-
-#include <iostream>
 
 int getBestFit(std::vector<int> capacity, std::vector<std::vector<int>>& dataset, int vectSize);
 int getDotProduct(std::vector<int>& item, std::vector<int>& capacity, int vectSize);

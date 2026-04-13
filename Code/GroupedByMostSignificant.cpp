@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
 #include "FFDItemCentric.h"
 #include "mergeSort.h"
 
-#include <iostream>
 
 std::vector<std::vector<int>> GroupedByMostSignificant(std::vector<std::vector<int>> dataset, int binSize) {
 	std::cout << "Grouped By Most Significant:" << std::endl;

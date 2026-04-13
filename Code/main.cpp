@@ -23,8 +23,14 @@
 #include "PanigrahyBinCentric.h"
 // heuristic = 8
 #include "FFDProductSort.h"
+// heuristic = 9
+#include "FFDL2.h"
+// heuristic = 10
+#include "FFDLinf.h"
+// heuristic = 11
+#include "FFDL1Weighted.h"
 
-const std::vector<int> HEURISTICS = { 6 };
+const std::vector<int> HEURISTICS = { 7, 1, 8, 9, 10, 11, 6 };
 
 const bool CAPRARATOTHBENCHMARK = false;
 
@@ -36,9 +42,9 @@ int main() {
 	int dimensions;
 	// open file, get dataset length and bin size
 	//std::string inputFilePath = "../BenchmarkDatasets/2cbp/Class4/CL_04_200_01.TXT";
-	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class2/class2_500_3_1.vbp";
-	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class3/class3_500_3_0.vbp";
-	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_249_3_0.vbp";
+	std::string inputFilePath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/class1_500_5_1.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class1/class1_500_3_0.vbp";
+	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_60_10_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/classF_60_3_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/hugeDataset_3.vbp";
 	std::string line;
@@ -116,6 +122,15 @@ int main() {
 			break;
 		case 8:
 			result = FFDProductSort(dataset, binSize);
+			break;
+		case 9:
+			result = FFDL2(dataset, binSize);
+			break;
+		case 10:
+			result = FFDLinf(dataset, binSize);
+			break;
+		case 11:
+			result = FFDL1Weighted(dataset, binSize);
 			break;
 		}
 		auto stop = std::chrono::high_resolution_clock::now();

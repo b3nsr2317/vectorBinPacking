@@ -127,6 +127,9 @@
     <ClCompile Include="FFDBinCentric.cpp" />
     <ClCompile Include="FFDBinCentricDynamicSort.cpp" />
     <ClCompile Include="FFDItemCentric.cpp" />
+    <ClCompile Include="FFDL1Weighted.cpp" />
+    <ClCompile Include="FFDL2.cpp" />
+    <ClCompile Include="FFDLinf.cpp" />
     <ClCompile Include="FFDProductSort.cpp" />
     <ClCompile Include="FirstNItems.cpp" />
     <ClCompile Include="getDatasetArray.cpp" />
@@ -140,6 +143,9 @@
     <ClInclude Include="FFDBinCentric.h" />
     <ClInclude Include="FFDBinCentricDynamicSort.h" />
     <ClInclude Include="FFDItemCentric.h" />
+    <ClInclude Include="FFDL1Weighted.h" />
+    <ClInclude Include="FFDL2.h" />
+    <ClInclude Include="FFDLinf.h" />
     <ClInclude Include="FFDProductSort.h" />
     <ClInclude Include="FirstNItems.h" />
     <ClInclude Include="getDatasetArray.h" />

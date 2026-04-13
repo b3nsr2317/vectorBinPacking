@@ -1,8 +1,8 @@
+#include <iostream>
 #include <vector>
 #include "FFDItemCentric.h"
 #include "mergeSort.h"
 
-#include <iostream>
 
 std::vector<std::vector<int>> FFDBinCentricDynamicSort(std::vector<std::vector<int>> dataset, int binSize) {
 	std::cout << "FFD Bin Centric - dynamic sort:" << std::endl;

@@ -68,7 +68,10 @@ std::vector<std::vector<int>> sortByProduct(std::vector<std::vector<int>> datase
 				first = false;
 			}
 			else {
-				product *= val;
+				// stop zero values causing a size of 0
+				if (val > 0) {
+					product *= val;
+				}
 			}
 		}
 		sortInput[vect[0]] = { vect[0], product };
@@ -81,7 +84,7 @@ std::vector<std::vector<int>> sortByProduct(std::vector<std::vector<int>> datase
 	return sortedDataset;
 }
 
-std::vector<std::vector<int>> sortBySum(std::vector<std::vector<int>> dataset) {
+std::vector<std::vector<int>> sortL1(std::vector<std::vector<int>> dataset) {
 	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
 	std::vector<std::vector<int>> sortedDataset = dataset;
 	// get the sum of each dimension to use as measure of vector size in sort
@@ -95,6 +98,95 @@ std::vector<std::vector<int>> sortBySum(std::vector<std::vector<int>> dataset) {
 			else {
 				sum += val;
 			}
+		}
+		sortInput[vect[0]] = { vect[0], sum };
+	}
+	// order dataset according to sort result
+	std::vector<std::vector<int>> sortResult = mergeSort(sortInput);
+	for (int i = 0; i < sortResult.size(); i++) {
+		sortedDataset[i] = dataset[sortResult[i][0]];
+	}
+	return sortedDataset;
+}
+
+std::vector<std::vector<int>> sortL2(std::vector<std::vector<int>> dataset) {
+	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
+	std::vector<std::vector<int>> sortedDataset = dataset;
+	// get the sum of each dimension to use as measure of vector size in sort
+	for (std::vector<int> vect : dataset) {
+		bool first = true;
+		int sum = 0;
+		for (int val : vect) {
+			if (first) {
+				first = false;
+			}
+			else {
+				sum += (val * val);
+			}
+		}
+		sortInput[vect[0]] = { vect[0], sum };
+	}
+	// order dataset according to sort result
+	std::vector<std::vector<int>> sortResult = mergeSort(sortInput);
+	for (int i = 0; i < sortResult.size(); i++) {
+		sortedDataset[i] = dataset[sortResult[i][0]];
+	}
+	return sortedDataset;
+}
+
+std::vector<std::vector<int>> sortLinf(std::vector<std::vector<int>> dataset) {
+	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
+	std::vector<std::vector<int>> sortedDataset = dataset;
+	// get the sum of each dimension to use as measure of vector size in sort
+	for (std::vector<int> vect : dataset) {
+		bool first = true;
+		int size = 0;
+		for (int val : vect) {
+			if (first) {
+				first = false;
+			}
+			else if (val > size) {
+				size = val;
+			}
+		}
+		sortInput[vect[0]] = { vect[0], size };
+	}
+	// order dataset according to sort result
+	std::vector<std::vector<int>> sortResult = mergeSort(sortInput);
+	for (int i = 0; i < sortResult.size(); i++) {
+		sortedDataset[i] = dataset[sortResult[i][0]];
+	}
+	return sortedDataset;
+}
+
+std::vector<std::vector<int>> sortL1Weighted(std::vector<std::vector<int>> dataset) {
+	std::vector<std::vector<int>> sortInput(dataset.size(), std::vector<int>(2));
+	std::vector<std::vector<int>> sortedDataset = dataset;
+	size_t totalSum = 0;
+	std::vector<size_t> sums;
+	// calculate each dimension as a fraction of the total value of all elements, compared to the total value of that dimensions elements
+	for (int i = 0; i < dataset[0].size() - 1; i++) {
+		sums.push_back(0);
+	}
+	for (std::vector<int> vect : dataset) {
+		for (int i = 1; i < vect.size(); i++) {
+			sums[i - 1] += vect[i];
+			totalSum += vect[i];
+		}
+	}
+	// weights should be 0 <= weight <= 1
+	std::vector<int> weights;
+	std::cout << "Dimension Weights:" << std::endl;
+	for (int i = 0; i < sums.size(); i++) {
+		weights.push_back(100000.0 * sums[i] / totalSum);
+		//weights.push_back(100000.0 * (sums[i] * sums[i]) / (totalSum * totalSum));
+		std::cout << weights[weights.size() - 1] << std::endl;
+	}
+	// get the sum of each dimension to use as measure of vector size in sort
+	for (std::vector<int> vect : dataset) {
+		int sum = 0;
+		for (int i = 1; i < vect.size(); i++) {
+			sum += vect[i] * weights[i - 1];
 		}
 		sortInput[vect[0]] = { vect[0], sum };
 	}
