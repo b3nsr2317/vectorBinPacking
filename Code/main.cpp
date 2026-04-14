@@ -46,7 +46,6 @@ int main() {
 	//std::string inputFilePath = "../BenchmarkDatasets/New_instances_multidim/class1/class1_500_3_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/classC_60_10_0.vbp";
 	//std::string inputFilePath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/classF_60_3_0.vbp";
-	//std::string inputFilePath = "../BenchmarkDatasets/hugeDataset_3.vbp";
 	std::string line;
 	std::ifstream DataFile(inputFilePath);
 	int binSize;
