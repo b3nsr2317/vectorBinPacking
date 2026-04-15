@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "FFDItemCentric.h"
+#include "PanigrahyBinCentric.h"
 #include "mergeSort.h"
 
 int getBestFit(std::vector<int> capacity, std::vector<std::vector<int>>& dataset, int vectSize);

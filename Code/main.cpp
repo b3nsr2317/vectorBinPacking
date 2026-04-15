@@ -7,6 +7,8 @@
 #include "getDatasetArray.h"
 
 
+// heuristic = 0
+#include "FirstFit.h"
 // heuristic = 1
 #include "FFDItemCentric.h"
 // heuristic = 2
@@ -30,7 +32,7 @@
 // heuristic = 11
 #include "FFDL1Weighted.h"
 
-const std::vector<int> HEURISTICS = { 7, 1, 8, 9, 10, 11, 6 };
+const std::vector<int> HEURISTICS = { 7, 1 };
 
 const bool CAPRARATOTHBENCHMARK = false;
 
@@ -98,6 +100,8 @@ int main() {
 		std::vector<std::vector<int>> result;
 		auto start = std::chrono::high_resolution_clock::now();
 		switch (heuristic) {
+		case 0:
+			result = FirstFit(dataset, binSize);
 		case 1:
 			result = FFDItemCentric(dataset, binSize);
 			break;

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "FFDItemCentric.h"
+#include "FFDBinCentric.h"
 #include "mergeSort.h"
 
 
