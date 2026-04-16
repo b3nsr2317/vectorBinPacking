@@ -5,7 +5,7 @@
 
 
 std::vector<std::vector<int>> FFDL2(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "FFD Item Centric (L2 Norm):" << std::endl;
+	//std::cout << "FFD Item Centric (L2 Norm):" << std::endl;
 	dataset = sortL2(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };

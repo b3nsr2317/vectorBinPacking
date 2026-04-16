@@ -32,7 +32,7 @@ std::vector<std::vector<int>> merge(std::vector<std::vector<int>> left, std::vec
 
 	// compare items one by one until one list is empty
 	while (ileft < lsize && iright < rsize) {
-		if (left[ileft][1] <= right[iright][1]) {
+		if (left[ileft][1] < right[iright][1]) {
 			result[i] = right[iright];
 			iright++;
 		}
@@ -66,12 +66,9 @@ std::vector<std::vector<int>> sortByProduct(std::vector<std::vector<int>> datase
 		for (int val : vect) {
 			if (first) {
 				first = false;
-			}
-			else {
 				// stop zero values causing a size of 0
-				if (val > 0) {
-					product *= val;
-				}
+			} else if (val > 0) {
+				product *= val;
 			}
 		}
 		sortInput[vect[0]] = { vect[0], product };
@@ -174,13 +171,12 @@ std::vector<std::vector<int>> sortL1Weighted(std::vector<std::vector<int>> datas
 			totalSum += vect[i];
 		}
 	}
-	// weights should be 0 <= weight <= 1
+	// weights should be 0 <= weight <= 1, scaled up by 100000 and truncated
 	std::vector<int> weights;
-	std::cout << "Dimension Weights:" << std::endl;
+	//std::cout << "Dimension Weights:" << std::endl;
 	for (int i = 0; i < sums.size(); i++) {
 		weights.push_back(100000.0 * sums[i] / totalSum);
-		//weights.push_back(100000.0 * (sums[i] * sums[i]) / (totalSum * totalSum));
-		std::cout << weights[weights.size() - 1] << std::endl;
+		//std::cout << weights[weights.size() - 1] << std::endl;
 	}
 	// get the sum of each dimension to use as measure of vector size in sort
 	for (std::vector<int> vect : dataset) {

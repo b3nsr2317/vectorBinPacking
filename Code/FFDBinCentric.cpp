@@ -5,7 +5,7 @@
 
 
 std::vector<std::vector<int>> FFDBinCentric(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "FFD Bin Centric:" << std::endl;
+	//std::cout << "FFD Bin Centric:" << std::endl;
 	dataset = sortL1(dataset);
 	int vectorSize = dataset[0].size();
 	std::vector<std::vector<int>> result;

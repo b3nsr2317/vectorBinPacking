@@ -6,7 +6,7 @@
 
 
 std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "First N Items:" << std::endl;
+	//std::cout << "First N Items:" << std::endl;
 	dataset = sortL1(dataset);
 	int minBins = 0;
 	for (int i = 1; i < dataset[0].size(); i++) {
@@ -18,7 +18,7 @@ std::vector<std::vector<int>> FirstNItems(std::vector<std::vector<int>> dataset,
 			minBins = std::ceil(total / binSize);
 		}
 	}
-	std::cout << "Minimum bins: " << minBins << std::endl;
+	//std::cout << "Minimum bins: " << minBins << std::endl;
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = {};
 	for (int i = 0; i < minBins; i++) {

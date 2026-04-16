@@ -57,6 +57,9 @@
     <ClCompile Include="FFDL1Weighted.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FirstFit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="getDatasetArray.h">
@@ -96,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FFDL1Weighted.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstFit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

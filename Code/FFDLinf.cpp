@@ -5,7 +5,7 @@
 
 
 std::vector<std::vector<int>> FFDLinf(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "FFD Item Centric (L-infinity Norm):" << std::endl;
+	//std::cout << "FFD Item Centric (L-infinity Norm):" << std::endl;
 	dataset = sortLinf(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };

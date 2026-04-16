@@ -4,7 +4,7 @@
 
 
 std::vector<std::vector<int>> FirstFit(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "First Fit:" << std::endl;
+	//std::cout << "First Fit:" << std::endl;
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };
 	for (int i = 1; i < dataset[0].size(); i++) {

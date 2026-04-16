@@ -5,7 +5,7 @@
 
 
 std::vector<std::vector<int>> GroupedByMostSignificant(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "Grouped By Most Significant:" << std::endl;
+	//std::cout << "Grouped By Most Significant:" << std::endl;
 	int vectorSize = dataset[0].size();
 	std::vector<std::vector<int>> fullDataset = dataset;
 	std::vector<std::vector<std::vector<int>>> splitDataset;

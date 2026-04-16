@@ -102,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,6 +132,7 @@
     <ClCompile Include="FFDL2.cpp" />
     <ClCompile Include="FFDLinf.cpp" />
     <ClCompile Include="FFDProductSort.cpp" />
+    <ClCompile Include="FirstFit.cpp" />
     <ClCompile Include="FirstNItems.cpp" />
     <ClCompile Include="getDatasetArray.cpp" />
     <ClCompile Include="GroupedByMostSignificant.cpp" />
@@ -147,6 +149,7 @@
     <ClInclude Include="FFDL2.h" />
     <ClInclude Include="FFDLinf.h" />
     <ClInclude Include="FFDProductSort.h" />
+    <ClInclude Include="FirstFit.h" />
     <ClInclude Include="FirstNItems.h" />
     <ClInclude Include="getDatasetArray.h" />
     <ClInclude Include="GroupedByMostSignificant.h" />

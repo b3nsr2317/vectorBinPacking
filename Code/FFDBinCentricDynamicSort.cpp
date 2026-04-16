@@ -5,7 +5,7 @@
 
 
 std::vector<std::vector<int>> FFDBinCentricDynamicSort(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "FFD Bin Centric - dynamic sort:" << std::endl;
+	//std::cout << "FFD Bin Centric - dynamic sort:" << std::endl;
 	dataset = multiFactorSort(dataset);
 	int vectorSize = dataset[0].size();
 	std::vector<std::vector<int>> result;

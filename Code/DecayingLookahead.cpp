@@ -9,7 +9,7 @@ std::vector<int> placeItems(std::vector<std::vector<int>>& dataset, std::vector<
 bool checkItem(std::vector<int> &bin, std::vector<int> &item);
 
 std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> dataset, int binSize, int lowerBound) {
-	std::cout << "Decaying Lookahead:" << std::endl;
+	//std::cout << "Decaying Lookahead:" << std::endl;
 	int datasetSize = dataset.size();
 	int vectorSize = dataset[0].size();
 	float estimatePerBin = dataset.size() / lowerBound;
@@ -20,7 +20,7 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 	float decayRate = 4/estimatePerBin;
 	//initialLookforward = 200;
 	//decayRate = 0;
-	std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;
+	//std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;
 	dataset = sortL1(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins;

@@ -5,7 +5,7 @@
 
 
 std::vector<std::vector<int>> FFDProductSort(std::vector<std::vector<int>> dataset, int binSize) {
-	std::cout << "FFD Item Centric (Product Sort):" << std::endl;
+	//std::cout << "FFD Item Centric (Product Sort):" << std::endl;
 	dataset = sortByProduct(dataset);
 	std::vector<std::vector<int>> result;
 	std::vector <std::vector<int>> bins = { {} };
