@@ -55,7 +55,7 @@ int main() {
 	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class7/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class8/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class10/";
-	//std::string inputFolderPath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/";
+	std::string inputFolderPath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class1/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class2/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class3/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/Panigrahy_instances_multidim/class4/";
@@ -67,7 +67,7 @@ int main() {
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class1/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class2/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class3/";
-	std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class4/";
+	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class4/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class5/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class6/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/";

@@ -10,7 +10,6 @@ std::vector<std::vector<int>> FirstFit(std::vector<std::vector<int>> dataset, in
 	for (int i = 1; i < dataset[0].size(); i++) {
 		bins[0].push_back(binSize);
 	}
-	int lastBin = 0;
 	for (auto& item : dataset) {
 		bool fit = false;
 		int bin = 0;
