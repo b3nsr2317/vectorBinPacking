@@ -18,8 +18,6 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 		initialLookforward = 3;
 	}
 	float decayRate = 4/estimatePerBin;
-	//initialLookforward = 200;
-	//decayRate = 0;
 	//std::cout << "Starting Lookforward: " << initialLookforward << ". Decay Rate: " << decayRate << std::endl;
 	dataset = sortL1(dataset);
 	std::vector<std::vector<int>> result;

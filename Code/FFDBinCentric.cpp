@@ -29,12 +29,12 @@ std::vector<std::vector<int>> FFDBinCentric(std::vector<std::vector<int>> datase
 				}
 			}
 			if (fit) {
-				bool full = false;
+				bool full = true;
 				bins[currentBin].push_back(dataset[currentItem][0]);
 				for (int i = 1; i < vectorSize; i++) {
 					bins[currentBin][i - 1] -= dataset[currentItem][i];
-					if (bins[currentBin][i - 1] == 0) {
-						full = true;
+					if (bins[currentBin][i - 1] > 0) {
+						full = false;
 					}
 				}
 				dataset.erase(dataset.begin() + currentItem);

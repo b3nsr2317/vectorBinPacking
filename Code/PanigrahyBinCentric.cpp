@@ -8,7 +8,6 @@ int getDotProduct(std::vector<int>& item, std::vector<int>& capacity, int vectSi
 
 std::vector<std::vector<int>> PanigrahyBinCentric(std::vector<std::vector<int>> dataset, int binSize) {
 	//std::cout << "Panigrahy Dot-Product Bin Centric:" << std::endl;
-	dataset = sortByProduct(dataset);
 	int vectorSize = dataset[0].size();
 	std::vector <std::vector<int>> bins;
 	int currentBin = -1;
