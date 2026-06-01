@@ -35,3 +35,17 @@ As described in "Heuristics for Vector Bin Packing" (Panigrahy et al., 2011), us
 ## FFD Norms
 
 The basic FFD heuristic implemented in this uses the L1 norm (Manhattan distance) to sort items. Included in the project are variations that use a product sort, which calculates the product of all non-zero dimensions; the L2 norm (Euclidean distance); L-infinity (Chebyshev distance); and a weighted L1 norm, weights each dimension based on its significance over the whole dataset.
+
+# Notes regarding code
+
+## CAPRARATOTHBENCHMARK constant
+
+When using the 2cbp benchmark dataset, this constant should be set to true. When using any of the others, it should be false. This is because the files are formatted differently, and this was a quick simple workaround. In practice, it would be expected that all input data would be formatted according to a standard, removing the need for this workaroud.
+
+## Regex (line 89)
+
+As explained in the comments in the code, the regex on line 89 can be altered to filter which files to use from the input folder.
+
+## Output
+
+Since this was used for research and to analyse the results, the actual packing is not output by main.cpp. Instead, the output gives details of the lower bound, actual packing, and time taken. The individual functions for heuristics do return a vector of bins, therefore the code can be trivially modified to return the suggested bin packing rather than details of the packing.
