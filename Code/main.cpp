@@ -34,7 +34,7 @@
 // heuristic = 11
 #include "FFDL1Weighted.h"
 
-const std::vector<int> HEURISTICS = { 1, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+const std::vector<int> HEURISTICS = { 0, 1, 7, 3, 4, 6 };
 
 const bool CAPRARATOTHBENCHMARK = false;
 
@@ -46,7 +46,7 @@ int getLowerBound(std::vector<std::vector<int>> dataset, int binsize);
 int main() {
 	int dimensions;
 	// open file, get dataset length and bin size
-	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class1/";
+	// std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class1/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class2/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class3/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/2cbp/Class4/";
@@ -70,7 +70,7 @@ int main() {
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class4/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class5/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/New_instances_multidim/class6/";
-	//std::string inputFolderPath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/";
+	// std::string inputFolderPath = "../BenchmarkDatasets/Triplet_instances_multidim/Caprara/";
 	//std::string inputFolderPath = "../BenchmarkDatasets/Triplet_instances_multidim/Falkenauer/";
 
 	int datasetsUsed = 0;
@@ -84,9 +84,9 @@ int main() {
 	for (auto& inputFile : std::filesystem::directory_iterator(inputFolderPath)) {
 		std::string inputFileStr = inputFile.path().filename().string();
 		// Check file matches desired dataset size and dimensions
-		// for caprara toth, use "_d_"
+		// for caprara toth, use "_s_"
 		// for vectorpack use "_s_d_"
-		const std::regex pattern("_500_3_");
+		const std::regex pattern("_501_5_0");
 		if (!std::regex_search(inputFileStr, pattern)) {
 			continue;
 		}
@@ -240,7 +240,7 @@ int main() {
 	std::cout << "Instances Tested: " << datasetsUsed << " - Average Lower Bound: " << 1.0 * totalLowerBound / datasetsUsed << std::endl << std::endl;
 	for (int i = 0; i < HEURISTICS.size(); i++) {
 		std::cout << "Heuristic " << HEURISTICS[i] << ":" << std::endl;
-		std::cout << "Mean Time: " << 1.0 * totalTime[i] / datasetsUsed << "ms - ";
+		std::cout << "Mean Time: " << 1.0 * totalTime[i] / datasetsUsed << " microseconds - ";
 		std::cout << "Mean Bins: " << 1.0 * totalBins[i] / datasetsUsed << std::endl;
 		if (totalConfirmedOptimal[i] > 0) {
 			std::cout << totalConfirmedOptimal[i] << " confirmed optimal results" << std::endl << std::endl;

@@ -10,11 +10,11 @@ This algorithm takes the dataset, sorts it into descending order (using the sum 
 
 ## First Fit Decreasing, Bin-Centric
 
-Similar to its item-centric counterpart, the dataset is sorted into descending order, a new bin is only opened when no values fit in the most recently opened one. Performs the same as the item-centric version but can be adapted to use other measures of size, such as dot product, as described in "Heuristics for Vector Bin Packing" (Panigrahy et al., 2011).
+Similar to its item-centric counterpart, the dataset is sorted into descending order, a new bin is only opened when no items fit in the most recently opened one. Gives the same result as the item-centric version in a slower time, but can be adapted to use other measures of size, such as dot product, as described in "Heuristics for Vector Bin Packing" (Panigrahy et al., 2011).
 
 ## Grouped by Most Significant
 
-This is a bin centric algorithm that works in a similar way to FFD. The dataset is split into d lists (where d is the number of dimensions of each vector). Once split, the current bin takes an item from the list corresponding to its most empty dimension. The idea of this is to reduce the occurences of one dimension within a bin being relatively full and another being quite empty. This often produces a better result than FFD, but at the expense of a slight reduction in performance.
+This is a bin centric algorithm that works in a similar way to FFD. The dataset is split into d lists (where d is the number of dimensions of each vector), corresponding to the dimension of the largest value in each vector. Once split, the current bin takes an item from the list corresponding to its most empty dimension. The idea behind this is to reduce the occurences of one dimension within a bin being relatively full and another being quite empty. This often produces a better result than FFD, but at the expense of a slight reduction in performance.
 
 ## First N Items
 
@@ -30,8 +30,8 @@ This heuristic uses a bin-centric FFD, but tests more than one item. It starts w
 
 ## Panigrahy Bin-Centric
 
-As described in "Heuristics for Vector Bin Packing" (Panigrahy et al., 2011), uses the dot product of items with the remaining capacity to determine how well it fits.
+As described in "Heuristics for Vector Bin Packing" (Panigrahy et al., 2011), uses the dot product of items with the remaining capacity of the open bin to determine how well it fits.
 
-## FFD Item-Centric with Product Sort
+## FFD Norms
 
-Standard FFD, but items are sorted by the product of their values, rather than the sum.
+The basic FFD heuristic implemented in this uses the L1 norm (Manhattan distance) to sort items. Included in the project are variations that use a product sort, which calculates the product of all non-zero dimensions; the L2 norm (Euclidean distance); L-infinity (Chebyshev distance); and a weighted L1 norm, weights each dimension based on its significance over the whole dataset.

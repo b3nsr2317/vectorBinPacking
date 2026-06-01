@@ -37,7 +37,6 @@ std::vector<std::vector<int>> DecayingLookahead(std::vector<std::vector<int>> da
 }
 
 std::vector<int> fillBin(std::vector<std::vector<int>> &dataset, int binSize, int initialLookahead, float decayRate) {
-	bool binFull = false;
 	std::vector<int> bin = {};
 	for (int i = 1; i < dataset[0].size(); i++) {
 		bin.push_back(binSize - dataset[0][i]);
